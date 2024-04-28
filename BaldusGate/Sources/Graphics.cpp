@@ -1,5 +1,4 @@
 #include "..\Headers\Graphics.h"
-
 #include "..\Headers\Macro.h"
 
 void Graphics::showBattleScene(Player* player, Mob* mob)

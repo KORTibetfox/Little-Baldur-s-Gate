@@ -1,11 +1,10 @@
 #pragma once
 
 #include <string>
-using namespace std;
 
 typedef struct DATA
 {
-	string name;
+	std::string name;
 
 	short int level;
 	short int exp;
@@ -48,6 +47,6 @@ class Mob : public Unit
 {
 public:
 	// Common enemy
-	Mob(string name, int level, int max_hp, int str, int dex, int vit);
+	Mob(std::string name, int level, int max_hp, int str, int dex, int vit);
 	~Mob();
 };

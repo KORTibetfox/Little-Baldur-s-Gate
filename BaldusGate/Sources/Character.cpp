@@ -3,7 +3,7 @@
 
 Character::Character() {}
 
-string Character::getClassName()
+std::string Character::getClassName()
 {
 	return this->class_name;
 }

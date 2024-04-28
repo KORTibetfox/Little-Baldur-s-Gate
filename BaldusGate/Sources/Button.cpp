@@ -2,41 +2,44 @@
 #include <SFML/Graphics.hpp>
 #include "..\Headers\Button.h"
 
-using namespace std;
-using namespace sf;
-
-Button::Button(string t, Vector2f size, int charSize, Color bgColor, Color text_color) {
+Button::Button(std::string t, sf::Vector2f size, int charSize, sf::Color mainColor, sf::Color onMouseColor, sf::Color text_color) {
 
     text.setString(t);
     text.setColor(text_color);
     text.setCharacterSize(15);
 
+    btn_size = size;
+
     button.setSize(size);
-    button.setFillColor(bgColor);
+    this->mainColor = mainColor;
+
+    button.setFillColor(mainColor);
+    this->onMouseColor = onMouseColor;
 }
 
-void Button::setFont(Font& font) {
+void Button::setFont(sf::Font& font) {
     text.setFont(font);
 }
 
-void Button::setBackColor(Color color) {
+void Button::setBackColor(sf::Color color) {
     button.setFillColor(color);
 }
 
-void Button::setPosition(Vector2f pos) {
-    button.setPosition(pos);
+void Button::setPosition(sf::Vector2f pos) {
 
-    float xPos = (pos.x + button.getGlobalBounds().width / 2) - (text.getGlobalBounds().width / 2);
-    float yPos = (pos.y + button.getGlobalBounds().height / 2) - (text.getGlobalBounds().height / 2);
-    text.setPosition({ xPos, yPos });
+    text.setPosition(pos);
+    pos.x -= (btn_size.x / 3);
+    pos.y -= (btn_size.y / 3);
+
+    button.setPosition(pos);
 }
 
-void Button::drawTo(RenderWindow& window) {
+void Button::drawTo(sf::RenderWindow& window) {
     window.draw(button);
     window.draw(text);
 }
 
-bool Button::isMouseOver(RenderWindow& window) {
+bool Button::isMouseOver(sf::RenderWindow& window) {
     float mouse_X = sf::Mouse::getPosition(window).x;
     float mouse_Y = sf::Mouse::getPosition(window).y;
 
@@ -50,4 +53,19 @@ bool Button::isMouseOver(RenderWindow& window) {
         return true;
 
     return false;
+}
+
+void Button::pressButton()
+{
+        std::cout << "Button Pressed!";   
+}
+
+sf::Color Button::getMainColor()
+{
+    return mainColor;
+}
+
+sf::Color Button::getOnMouseColor()
+{
+    return onMouseColor;
 }

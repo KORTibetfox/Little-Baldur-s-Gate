@@ -9,64 +9,78 @@ Game::~Game()
 {
 }
 
+void Game::init()
+{
+	window->setFramerateLimit(30); //30 Frame setting
+}
+
 Game* Game::getInstance() 
 {
 	if (instance == nullptr)
 	{
 		instance = new Game();
+		instance->init();
 	}
 	return instance;
 }
 
 void Game::update()
 {
-	//cout << "Game is updating now" << endl;
+	event();
+	scenemanager.switchScene();
 }
 
 void Game::render()
 {
-	//cout << "Game is Rendering now" << endl;
+	window->clear(sf::Color::Black);
+	scenemanager.draw(*window);
+	window->display();
+}
 
+void Game::event()
+{
+	scenemanager.event(*window);
+}
+
+bool Game::isGameRunning() 
+{
+	return window->isOpen();
 }
 
 Game* Game::instance = nullptr;
 
 // End of Game Class
 
-
-int Random::getRandomNumber(int range)
+int util::Random::getRandomNumber(int range)
 {
 	int r = 0;
-	random_device rd;
-	mt19937 gen(rd());
+	std::random_device rd;
+	std::mt19937 gen(rd());
 
-	uniform_int_distribution<int> dis(0, range);
+	std::uniform_int_distribution<int> dis(0, range);
 
 	return dis(rd);
 }
 
-
-int Dice::rolltheDice(int count, int range)
+int util::Dice::rolltheDice(int count, int range)
 {
 	int sum = 0;
 	for (int i = 0; i < count; i++)
-		sum += Random::getRandomNumber(range);
+		sum += util::Random::getRandomNumber(range);
 	return sum;
 }
 
-int Dice::rolltheDice(int range)
+int util::Dice::rolltheDice(int range)
 {
-	return Random::getRandomNumber(range);
+	return util::Random::getRandomNumber(range);
 }
 
-
-
-void Interface::WAIT()
+void util::Interface::WAIT()
 {
 	char c = _getch();
 }
 
-void Interface::diceMessage()
+void util::Interface::diceMessage()
 {
-	cout << "\nTry Roll The Dice!!" << endl << endl;
+	std::cout << "\nTry Roll The Dice!!" << std::endl;
 }

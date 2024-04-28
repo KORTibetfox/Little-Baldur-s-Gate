@@ -1,6 +1,5 @@
 #pragma once
 #include "..\Headers\Unit.h"
-
 #include "..\Headers\Macro.h"
 
 Unit::Unit()
@@ -23,8 +22,6 @@ Data Unit::getData()
 
 void Unit::setCurHp(int damage) { this->data.cur_hp -= damage; }
 
-
-
 Player::Player()
 {
 	this->data.name = "Zeus";
@@ -44,7 +41,7 @@ Player::~Player()
 
 
 
-Mob::Mob(string name, int level, int max_hp, int str, int dex, int vit)
+Mob::Mob(std::string name, int level, int max_hp, int str, int dex, int vit)
 {
 	this->data.name = name;
 	this->data.level = level;

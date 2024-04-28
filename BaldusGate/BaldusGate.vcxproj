@@ -133,24 +133,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\SceneManager.cpp" />
     <ClCompile Include="Sources\Battle.cpp" />
     <ClCompile Include="Sources\Button.cpp" />
     <ClCompile Include="Sources\Character.cpp" />
     <ClCompile Include="Sources\Client.cpp" />
     <ClCompile Include="Sources\Game.cpp" />
     <ClCompile Include="Sources\Graphics.cpp" />
-    <ClCompile Include="Sources\MainMenu.cpp" />
-    <ClCompile Include="Sources\Temp.cpp" />
+    <ClCompile Include="Sources\Scene.cpp" />
+    <ClCompile Include="Sources\Font.cpp" />
+    <ClCompile Include="Sources\Text.cpp" />
     <ClCompile Include="Sources\Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Battle.h" />
     <ClInclude Include="Headers\Button.h" />
     <ClInclude Include="Headers\Character.h" />
+    <ClInclude Include="Headers\Font.h" />
     <ClInclude Include="Headers\Game.h" />
     <ClInclude Include="Headers\Graphics.h" />
     <ClInclude Include="Headers\Macro.h" />
-    <ClInclude Include="Headers\MainMenu.h" />
+    <ClInclude Include="Headers\Scene.h" />
+    <ClInclude Include="Headers\SceneManager.h" />
+    <ClInclude Include="Headers\Text.h" />
     <ClInclude Include="Headers\Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

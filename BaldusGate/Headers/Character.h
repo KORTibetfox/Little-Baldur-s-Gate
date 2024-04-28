@@ -1,21 +1,18 @@
-
 #pragma once
 #include "..\Headers\Macro.h"
-
-using namespace std;
 
 class Character {
 
 private:
 
 protected:
-	string class_name;
+	std::string class_name;
 
 public:
 
 	Character();
 
-	string getClassName();
+	std::string getClassName();
 };
 
 class Warrior : public Character {
