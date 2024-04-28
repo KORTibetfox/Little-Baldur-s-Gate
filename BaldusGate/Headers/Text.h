@@ -5,10 +5,10 @@
 class CreateText
 {
 private:
-    sf::Text text;
+    sf::Text line;
 
 public:
-    CreateText(std::string str, sf::Font font, sf::Color color, int size);
+    CreateText(std::string str, sf::Font *font, sf::Color color, int size);
 
     void setMiddle();
     void setPosition(sf::Vector2f pos);

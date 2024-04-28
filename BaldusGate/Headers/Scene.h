@@ -43,7 +43,7 @@ private:
 	Button* btn_credit = new Button("Credit", { 200, 50 }, 20, sf::Color(255,255,255,128), sf::Color(255, 255, 0, 128), sf::Color::Black);
 	Button* btn_quit = new Button("Quit", { 200, 50 }, 20, sf::Color(255,255,255,128), sf::Color(255, 255, 0, 128), sf::Color::Black);
 
-	CreateText* text = new CreateText("Baldus Gate", font, sf::Color::White, 50);
+	CreateText* line = new CreateText("Baldur's Gate", &font, sf::Color::White, 50);
 
 public:
 

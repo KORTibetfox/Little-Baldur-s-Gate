@@ -10,7 +10,7 @@ void MainMenu::draw(sf::RenderWindow& window)
 	{
 		btn->drawTo(window);
 	}
-	//text->drawTo(window); // Why error???????????????
+	line->drawTo(window);
 }
 
 void MainMenu::loadObjects()
@@ -32,11 +32,11 @@ void MainMenu::loadObjects()
 	//text->setMiddle();
 	// 
 	//pos
-	text->setPosition(sf::Vector2f(WIDTH / 2, HEIGHT / 100 * 20));
+	line->setPosition(sf::Vector2f(WIDTH / 100 * 35, HEIGHT / 100 * 20));
 	//style
-	text->setBold();
-	text->setUnderLine();
-	text->setOutlineColor(sf::Color::Black);
+	line->setBold();
+	line->setUnderLine();
+	line->setOutlineColor(sf::Color::Black);
 
 	// Play Button
 	btn_play->setPosition({ WIDTH / 100 * 50, HEIGHT / 100 * 50 });

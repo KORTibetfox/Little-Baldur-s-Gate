@@ -1,45 +1,47 @@
 #include "..\Headers\Text.h"
 
-CreateText::CreateText(std::string str, sf::Font font, sf::Color color, int size)
+CreateText::CreateText(std::string str, sf::Font* font, sf::Color color, int size)
 {
-	text.setString(str);
-	text.setFont(font);
-	text.setFillColor(color);
-	text.setCharacterSize(size);
-	std::cout << "im here" << std::endl;
+	line.setString(str);
+	line.setFont(*font);
+	line.setFillColor(color);
+	line.setCharacterSize(size);
+	std::cout << "\nim in setCHaractersize" << std::endl;
 }
 
 void CreateText::setMiddle()
 {
-	text.setOrigin(sf::Vector2f(text.getLocalBounds().width / 2, text.getLocalBounds().height / 2));
+	line.setOrigin(sf::Vector2f(line.getLocalBounds().width / 2, line.getLocalBounds().height / 2));
 }
 
 void CreateText::setPosition(sf::Vector2f pos)
 {
-	text.setPosition(pos);
-}
-
-void CreateText::drawTo(sf::RenderWindow& window)
-{
-	window.draw(text);
+	line.setPosition(pos);
+	std::cout << "\nim in setPosition" << std::endl;
 }
 
 void CreateText::setString(std::string str)
 {
-	text.setString(str);
+	line.setString(str);
 }
 
 void CreateText::setOutlineColor(sf::Color color)
 {
-	text.setOutlineColor(color);
+	line.setOutlineThickness(10);
+	line.setOutlineColor(color);
 }
 
 void CreateText::setBold()
 {
-	text.setStyle(sf::Text::Bold);
+	line.setStyle(sf::Text::Bold);
 }
 
 void CreateText::setUnderLine()
 {
-	text.setStyle(sf::Text::Underlined);
+	line.setStyle(sf::Text::Underlined);
+}
+
+void CreateText::drawTo(sf::RenderWindow& window)
+{
+	window.draw(line);
 }
